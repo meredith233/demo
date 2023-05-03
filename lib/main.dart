@@ -4,10 +4,9 @@ import 'package:demo/utils/global.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
-final router = FluroRouter();
 
 void main() {
-  Routes.configureRouter(router);
+  RouteManager.initRouter();
   runApp(const MyApp());
 }
 
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      onGenerateRoute: router.generator,
+      onGenerateRoute: RouteManager.router.generator,
       navigatorKey: Global.navigatorKey,
       title: 'Flutter Demo',
       theme: ThemeData(

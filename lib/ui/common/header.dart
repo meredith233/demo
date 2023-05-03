@@ -1,6 +1,3 @@
-import 'package:demo/main.dart';
-import 'package:demo/routes/router.dart';
-import 'package:demo/utils/global.dart';
 import 'package:flutter/material.dart';
 
 Drawer getCommonDrawer(BuildContext context) {
@@ -25,15 +22,9 @@ Drawer getCommonDrawer(BuildContext context) {
         const ListTile(
           leading: CircleAvatar(child: Icon(Icons.home)),
           title: Text("我的空间"),
-          onTap: tapOne,
         ),
         const Divider(),
       ],
     ),
   );
-}
-
-GestureTapCallback? tapOne() {
-  router.navigateTo(appContext(), Routes.indexPage);
-  return null;
 }
