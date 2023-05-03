@@ -19,12 +19,17 @@ Drawer getCommonDrawer(BuildContext context) {
             )
           ],
         ),
-        const ListTile(
-          leading: CircleAvatar(child: Icon(Icons.home)),
-          title: Text("我的空间"),
+        ListTile(
+          leading: const CircleAvatar(child: Icon(Icons.home)),
+          title: const Text("我的空间"),
+          onTap: () {
+            print('');
+          },
         ),
         const Divider(),
       ],
     ),
   );
 }
+
+void tap() {}
