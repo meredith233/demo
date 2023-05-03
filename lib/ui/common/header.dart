@@ -37,11 +37,10 @@ Drawer getCommonDrawer() {
           leading: const CircleAvatar(child: Icon(Icons.home)),
           title: const Text("列表测试"),
           enabled: () {
-            return RouteManager.getCurrentRoute() != RouteManager.loginPage;
+            return RouteManager.getCurrentRoute() != RouteManager.listPage;
           }(),
           onTap: () {
-            RouteManager.router
-                .navigateTo(appContext(), RouteManager.loginPage);
+            RouteManager.router.navigateTo(appContext(), RouteManager.listPage);
           },
         ),
       ],

@@ -1,6 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../ui/list/list_page.dart';
 import '../ui/login/login_page.dart';
 import '../ui/main/main_page.dart';
 
@@ -12,17 +13,22 @@ var loginPageHandler = Handler(
     handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return const LoginPage();
 });
+var listPageHandler = Handler(
+    handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return const ListPage();
+});
 
 var currentPath = '/';
 
 class RouteManager {
   static String indexPage = '/';
   static String loginPage = '/auth/login';
+  static String listPage = '/list';
   static final CustomRouter router = CustomRouter();
 
   static void initRouter() {
     router.define(indexPage, handler: indexHandler);
-    router.define(loginPage, handler: loginPageHandler);
+    router.define(listPage, handler: listPageHandler);
   }
 
   static String getCurrentRoute() {
@@ -49,15 +55,15 @@ class CustomRouter extends FluroRouter {
     RouteSettings? routeSettings,
     bool? opaque,
   }) {
-    String pathToNavigate = path;
-    AppRouteMatch? routeMatched = super.match(pathToNavigate);
-    String? routePathMatched = routeMatched?.route.route;
-    if (routePathMatched != null) {
-      //如果页面需要登录，修改路由路径到登录页面
-      if (!_authCodes.contains(routePathMatched)) {
-        pathToNavigate = RouteManager.loginPage;
-      }
-    }
+    // String pathToNavigate = path;
+    // AppRouteMatch? routeMatched = super.match(pathToNavigate);
+    // String? routePathMatched = routeMatched?.route.route;
+    // if (routePathMatched != null) {
+    //   //如果页面需要登录，修改路由路径到登录页面
+    //   if (!_authCodes.contains(routePathMatched)) {
+    //     pathToNavigate = RouteManager.loginPage;
+    //   }
+    // }
     currentPath = path;
     return super.navigateTo(
       context,
