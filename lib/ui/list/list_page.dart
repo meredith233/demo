@@ -16,7 +16,6 @@ class _MyHomePageState extends State<ListPage> {
 
   void _incrementCounter() {
     setState(() {
-      print('?');
       dataList.add(const Text('value'));
     });
   }
