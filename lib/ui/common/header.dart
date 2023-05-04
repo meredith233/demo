@@ -28,8 +28,8 @@ Drawer getCommonDrawer() {
             return RouteManager.getCurrentRoute() != RouteManager.indexPage;
           }(),
           onTap: () {
-            RouteManager.router
-                .navigateTo(appContext(), RouteManager.indexPage);
+            RouteManager.router.navigateTo(appContext(), RouteManager.indexPage,
+                clearStack: true);
           },
         ),
         const Divider(),
@@ -40,7 +40,8 @@ Drawer getCommonDrawer() {
             return RouteManager.getCurrentRoute() != RouteManager.listPage;
           }(),
           onTap: () {
-            RouteManager.router.navigateTo(appContext(), RouteManager.listPage);
+            RouteManager.router.navigateTo(appContext(), RouteManager.listPage,
+                clearStack: true);
           },
         ),
       ],
